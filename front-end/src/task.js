@@ -11,7 +11,7 @@ class Task {
     taskStore.push(this)
   }
 
-  // 7. Create render function
+  // 7. Create render task function
 
   render() {
     return `${this.description} | ${this.priority} |

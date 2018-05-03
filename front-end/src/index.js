@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // 5. Set up form submit event listener to create new tasks
     const newTask = new Task({
-      id: taskStore.length,
+      id: taskStore[taskStore.length - 1].id + 1,
       description: newTaskDescription.value,
       priority: newTaskPriority.value,
       completed: false
