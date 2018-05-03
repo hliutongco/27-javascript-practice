@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const taskLi = newTask.createLi()
     taskList.append(taskLi);
 
-    // 10.  Create the task in the API
+    // 10.  Create the new task in the API
     newTask.createTask();
   })
 
