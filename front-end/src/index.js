@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function(){
       completed: false
     })
 
-    // 6. Set up render task functions
+    // 6. Call render task functions
     const taskLi = newTask.createLi()
     taskList.append(taskLi);
 
-    // 10.  Create the new task in the API
+    // 10.  Call new task function
     newTask.createTask();
   })
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(){
   taskList.addEventListener('click', function(event){
     const eventId = event.target.id
 
-    // 14. If there is no eventId, exit the event listener
+    // 14. If there is no event.target.id, exit the event listener
     if(eventId.length === 0){
       return
     }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return eventId === `delete-button-${task.id}`
       })
 
-      // 16. Remove task from list and from the API
+      // 16. Call delete task functions
       taskList.removeChild(event.target.parentElement)
       foundTask.deleteTask()
     }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return eventId === `checkbox-${task.id}`
       })
 
-      // 19. Edit task in the store and in the API
+      // 19. Call edit task functions
       foundTask.completed ? foundTask.completed = false : foundTask.completed = true;
       foundTask.editTask()
     }
