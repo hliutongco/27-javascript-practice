@@ -28,16 +28,22 @@ class Task {
   }
 
   // 11. Create createTask fetch request
-  createTask(){
+  static createTask(obj){
     fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(this)
+      body: JSON.stringify(obj)
     }).then(response => response.json())
-  }
+    .then(response => {
+      const taskList = document.getElementById('taskList')
+      const newTask = new Task(response)
+      const taskLi = newTask.createLi()
+      taskList.append(taskLi)
+    })
+}
 
   // 17. Create deleteTask fetch request
 

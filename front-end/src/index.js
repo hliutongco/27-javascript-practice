@@ -11,19 +11,9 @@ document.addEventListener('DOMContentLoaded', function(){
     event.preventDefault();
 
     // 5. Set up form submit event listener to create new tasks
-    const newTask = new Task({
-      id: taskStore[taskStore.length - 1].id + 1,
-      description: newTaskDescription.value,
-      priority: newTaskPriority.value,
-      completed: false
-    })
 
-    // 6. Call render task functions
-    const taskLi = newTask.createLi()
-    taskList.append(taskLi);
+    Task.createTask({description: newTaskDescription.value, priority: newTaskPriority.value, completed: false})
 
-    // 10.  Call new task function
-    newTask.createTask();
   })
 
   // 13. Set up a click event listener on the task list
@@ -44,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function(){
       // 16. Call delete task functions
       taskList.removeChild(event.target.parentElement)
       foundTask.deleteTask()
+          // console.log(taskStore)
     }
     else if(eventId.includes('checkbox')){
       // 18. Find relevant task in taskStore
@@ -54,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
       // 19. Call edit task functions
       foundTask.completed ? foundTask.completed = false : foundTask.completed = true;
       foundTask.editTask()
+          console.log(foundTask)
     }
   })
 
